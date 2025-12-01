@@ -97,7 +97,7 @@ char	*get_next_line(int fd)
 	char		*next_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > INT_MAX)
-		return (free(line), line = 0, NULL);
+		return (NULL);
 	temp = ft_read_line(fd, line);
 	if (!temp)
 	{

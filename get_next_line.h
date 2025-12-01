@@ -17,12 +17,12 @@
 #  define BUFFER_SIZE 42
 # endif
 
+# include <unistd.h>
+# include <stdio.h>
 # include <stdlib.h>
+# include <limits.h>
 # include <fcntl.h>
 # include <stddef.h>
-# include <stdio.h>
-# include <unistd.h>
-# include <limits.h>
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *line, char *buff);
@@ -31,5 +31,6 @@ size_t	ft_strlen(char *s);
 char	*ft_get_line(char *line);
 char	*ft_read_line(int fd, char *line);
 char	*ft_new_line(char *line);
+char	*ft_strdup(char *s);
 
 #endif
