@@ -17,7 +17,7 @@ char	*ft_read_line(int fd, char *line)
 	char	*buffer;
 	ssize_t	read_bytes;
 
-	buffer = (char *)malloc((BUFFER_SIZE + 1 * sizeof(char)));
+	buffer = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
 	read_bytes = 1;
@@ -47,7 +47,7 @@ char	*ft_new_line(char *line)
 		free(line);
 		return (NULL);
 	}
-	str = (char *)malloc(sizeof(char) * (ft_strlen(line) - i) + 1);
+	str = (char *)malloc(ft_strlen(line) - i + 1);
 	if (!str)
 	{
 		free(line);

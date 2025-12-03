@@ -28,14 +28,14 @@ char	*ft_strchr(char *s, int c)
 
 	i = 0;
 	if (!s)
-		return (0);
+		return (NULL);
 	while (s[i])
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);
 		i++;
 	}
-	return (0);
+	return (NULL);
 }
 
 char	*ft_strdup(char *s)
