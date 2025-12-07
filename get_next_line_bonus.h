@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.h                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: outaouss <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 09:46:09 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/01 09:46:10 by outaouss         ###   ########.fr       */
+/*   Created: 2025/12/07 23:21:41 by outaouss          #+#    #+#             */
+/*   Updated: 2025/12/07 23:21:43 by outaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 2147483647
+# endif
+
+# ifndef FILE_D_MAX
+#  define FILE_D_MAX 1024
 # endif
 
 # include <unistd.h>

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: outaouss <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/01 09:46:03 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/01 09:46:04 by outaouss         ###   ########.fr       */
+/*   Created: 2025/12/07 23:21:37 by outaouss          #+#    #+#             */
+/*   Updated: 2025/12/07 23:21:39 by outaouss         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_read_line(int fd, char *line)
 {
@@ -95,22 +95,22 @@ char	*ft_get_line(char *line)
 
 char	*get_next_line(int fd)
 {
-	static char	*line;
+	static char	*line[FILE_D_MAX];
 	char		*temp;
 	char		*next_line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > FILE_D_MAX)
 		return (NULL);
-	temp = ft_read_line(fd, line);
+	temp = ft_read_line(fd, line[fd]);
 	if (!temp)
 	{
-		if (line)
-			free(line);
-		line = NULL;
+		if (line[fd])
+			free(line[fd]);
+		line[fd] = NULL;
 		return (NULL);
 	}
-	line = temp;
-	next_line = ft_get_line(line);
-	line = ft_new_line(line);
+	line[fd] = temp;
+	next_line = ft_get_line(line[fd]);
+	line[fd] = ft_new_line(line[fd]);
 	return (next_line);
 }
