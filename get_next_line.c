@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:46:03 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/10 00:57:15 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/10 01:17:10 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ char	*ft_read_line(int fd, char *line)
 {
 	char	*buffer;
 	ssize_t	read_bytes;
-
 	buffer = (char *)malloc((size_t)BUFFER_SIZE + 1);
 	if (!buffer)
 		return (NULL);
@@ -25,7 +24,9 @@ char	*ft_read_line(int fd, char *line)
 	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (read_bytes == -1)
+		{
 			return (free(buffer), NULL);
+		}
 		buffer[read_bytes] = '\0';
 		line = ft_strjoin(line, buffer);
 	}
@@ -93,21 +94,19 @@ char	*ft_get_line(char *line)
 char	*get_next_line(int fd)
 {
 	static char	*line;
-	char		*temp;
 	char		*next_line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	temp = ft_read_line(fd, line);
-	if (!temp)
-	{
-		if (line)
-			free(line);
-		line = NULL;
+	line = ft_read_line(fd, line);
+	if (!line)
 		return (NULL);
-	}
-	line = temp;
 	next_line = ft_get_line(line);
 	line = ft_new_line(line);
+	if (!next_line)
+	{
+		free(line);
+		line = NULL;
+	}
 	return (next_line);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: outaouss <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 15:54:49 by outaouss          #+#    #+#             */
-/*   Updated: 2025/11/30 15:54:52 by outaouss         ###   ########.fr       */
+/*   Updated: 2025/12/10 01:02:58 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,9 @@ char	*ft_strjoin(char *s1, char *s2)
 		j++;
 		i++;
 	}
+	// static int f = 1;
+	// printf("[ %d ]", f);
+	// f++;
 	free(s1);
 	new_string[i] = '\0';
 	return (new_string);

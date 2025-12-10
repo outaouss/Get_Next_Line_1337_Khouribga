@@ -6,7 +6,7 @@
 /*   By: splinta <splinta@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/01 09:46:09 by outaouss          #+#    #+#             */
-/*   Updated: 2025/12/10 00:41:17 by splinta          ###   ########.fr       */
+/*   Updated: 2025/12/10 01:27:52 by splinta          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 2147483647
+#  define BUFFER_SIZE 2
 # endif
 
 # include <unistd.h>
@@ -24,29 +24,31 @@
 # include <fcntl.h>
 # include <stddef.h>
 
-#define malloc(x) my_malloc(x)
 
-#ifdef malloc
-#undef malloc
+///// GNL HUGE TEST
 
+// #define malloc(x) my_malloc(x)
 
-//////////////
-static inline void* my_malloc(size_t size) 
-{
-    static int var;
-    void* ptr;
-    if (var > 50)
-        ptr = NULL;
-    else
-        ptr = malloc(size);
-    var++; 
-    return ptr;
-}
-#define malloc(x) my_malloc(x)
-#endif
+// #ifdef malloc
+// #undef malloc
 
-#define malloc(x) my_malloc(x)
-//////////////
+// static inline void* my_malloc(size_t size) 
+// {
+//     static int var;
+//     void* ptr;
+//     if (var > 156)
+//         ptr = NULL;
+//     else
+//         ptr = malloc(size);
+//     var++; 
+//     return ptr;
+// }
+// #define malloc(x) my_malloc(x)
+// #endif
+
+// #define malloc(x) my_malloc(x)
+
+////////////// GNL END OF THE HUGE TEST
 
 char	*get_next_line(int fd);
 char	*ft_strjoin(char *line, char *buff);
