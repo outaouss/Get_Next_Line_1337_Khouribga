@@ -1,12 +1,12 @@
 ## get_next_line — 42 Project
 
-💡 ****The Goal****
+💡 **The Goal**
 
 The goal of this project is to write a function that returns a line read from a file descriptor. Whether the input comes from a standard file, a redirect, or even stdin, the function must return the line ending with a newline character (\n) if it exists.
 
 This project introduces the concept of Static Variables in C and provides a deep dive into how the Operating System manages files through File Descriptors, File Tables, and Inodes.
 
-🏗️ ****The Architecture (Under the Hood)**
+🏗️ **The Architecture (Under the Hood)**
 
 To succeed in this project, I had to understand how the Linux Kernel tracks file positions. When get_next_line is called, it interacts with three system layers:
 
@@ -16,7 +16,7 @@ Global Open File Table: A system-wide table that stores the File Offset (the "cu
 
 Inode Table: Contains the metadata and the physical location of the data blocks on the hard drive.
 
-🧠 ****The Algorithm**
+🧠 **The Algorithm**
 
 The logic is split into three main phases to ensure memory efficiency and handle "leftover" data (the Stash):
 
@@ -31,7 +31,7 @@ Once the stash contains a newline, we locate its Memory Offset (the distance fro
 This is the most critical part for memory management. We take the remaining data in the stash (everything after the \n), save it into a new memory block, and free the old stash to prevent leaks.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-🛠️ ****Features & Technical Details****
+🛠️ **Features & Technical Details**
 
 Static Variables: Used to preserve the "Stash" between function calls.
 
